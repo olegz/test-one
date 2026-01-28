@@ -15,7 +15,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
   repository_dispatch:
-    types: [some_event]
+    types: [spring-cloud-function]
   
 jobs:
   receiver:
