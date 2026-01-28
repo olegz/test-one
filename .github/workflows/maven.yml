@@ -41,7 +41,7 @@ jobs:
     - name: Dispatch to publisher
       run: |
         curl -H "Accept: application/vnd.github.everest-preview+json" \
-        -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+        -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
         --request POST \
         --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/publisher/dispatches
 
