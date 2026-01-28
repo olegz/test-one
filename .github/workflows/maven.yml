@@ -38,7 +38,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Dispatch to test-two
+    - name: Dispatch to publisher
       run: |
         curl -H "Accept: application/vnd.github.everest-preview+json" \
         -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
