@@ -38,6 +38,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Dispatch to test-two
+      run: |
+        curl -H "Accept: application/vnd.github.everest-preview+json" \
+        -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+        --request POST \
+        --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/piblisher/dispatches
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
